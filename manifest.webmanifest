@@ -1,0 +1,11 @@
+{
+  "name": "Stock Sentinel｜台股紀律交易助手",
+  "short_name": "台股紀律",
+  "description": "私人股票策略、行情盤後檢查與交易日誌",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#09111c",
+  "theme_color": "#0b1421",
+  "icons": [{"src":"./icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any"}]
+}
