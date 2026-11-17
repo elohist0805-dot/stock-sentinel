@@ -31,9 +31,9 @@ async function remoteRead({showConfirm=true}={}){
   version=result.version;
   if(result.data){
     if(showConfirm&&snapshot().stocks.length&&JSON.stringify(result.data)!==JSON.stringify(snapshot())&&!confirm('雲端已經有資料。要以雲端資料取代本裝置目前顯示的設定嗎？\n建議先匯出本機 JSON 備份。')){status('雲端已有資料。尚未覆蓋本機內容；請先備份再選擇讀取。');active=false;return;}
-    active=true;blocked=false;
+    active=false;blocked=false;
     window.stockLocal.set(result.data);
-    dirty=false;
+    active=true;dirty=false;
     status('已連線並讀取雲端資料。版本 '+version+'｜'+(result.updatedAt||''));
   }else{
     active=false;
@@ -92,7 +92,7 @@ try{
   const session=JSON.parse(sessionStorage.getItem(tokenKey)||'null');
   if(session&&session.expiresAt>Date.now()&&session.endpoint=== $('cloudEndpoint').value){
     token=session.token;endpoint=session.endpoint;setLoggedIn(true);
-    remoteRead({showConfirm:false}).catch(e=>{setLoggedIn(false);status('登入已過期或雲端無法連線，請重新登入：'+e.message,true);});
+    remoteRead({showConfirm:true}).catch(e=>{setLoggedIn(false);status('登入已過期或雲端無法連線，請重新登入：'+e.message,true);});
   }
 }catch{}
 })();
