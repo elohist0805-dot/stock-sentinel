@@ -1,0 +1,12 @@
+CREATE TABLE IF NOT EXISTS private_data (
+ id INTEGER PRIMARY KEY CHECK(id=1),
+ version INTEGER NOT NULL,
+ payload TEXT NOT NULL,
+ updated_at TEXT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS login_limits (
+ id TEXT PRIMARY KEY,
+ attempts INTEGER NOT NULL,
+ first_at INTEGER NOT NULL,
+ blocked_until INTEGER NOT NULL
+);
