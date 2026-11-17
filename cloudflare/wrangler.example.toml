@@ -1,0 +1,9 @@
+name = "stock-sentinel-private"
+main = "src/worker.js"
+compatibility_date = "2026-11-17"
+
+# Replace this placeholder with your D1 database ID before deployment.
+[[d1_databases]]
+binding = "DB"
+database_name = "stock-sentinel-private"
+database_id = "REPLACE_WITH_YOUR_DATABASE_ID"
